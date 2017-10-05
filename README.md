@@ -1,2 +1,2 @@
 # poc_springmvc_thymeleaf
-POCs com springboot e thymeleaf.
+CRUD básico de cobrança de títulos, utilizando Springboot, SpringMVC, Hibernate, MySQL, Thymeleaf e Bootstrap 4 beta.
