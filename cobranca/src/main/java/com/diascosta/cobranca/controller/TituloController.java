@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,6 +22,8 @@ import com.diascosta.cobranca.repository.Titulos;
 @RequestMapping("/titulos")
 public class TituloController {
 	
+	private static final String CADASTRO_TITULO = "CadastroTitulo";
+
 	private static final String REDIRECT_TITULOS_NOVO = "redirect:/titulos/novo";
 	
 	@Autowired
@@ -28,7 +31,7 @@ public class TituloController {
 
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
-		ModelAndView mv = new ModelAndView("CadastroTitulo");
+		ModelAndView mv = new ModelAndView(CADASTRO_TITULO);
 		mv.addObject(new Titulo());
 		return mv;
 	}
@@ -36,7 +39,7 @@ public class TituloController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String salvar(@Validated Titulo titulo, Errors errors, RedirectAttributes attributes) {						
 		if(errors.hasErrors()) {
-			return "CadastroTitulo";
+			return CADASTRO_TITULO;
 		}		
 		titulos.save(titulo);						
 		attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");		
@@ -48,6 +51,13 @@ public class TituloController {
 		List<Titulo> listaTitulos = titulos.findAll();
 		ModelAndView mv = new ModelAndView("PesquisaTitulos");
 		mv.addObject("titulos", listaTitulos);
+		return mv;
+	}
+	
+	@RequestMapping("{codigo}")
+	public ModelAndView editar(@PathVariable("codigo") Titulo titulo) {
+		ModelAndView mv = new ModelAndView(CADASTRO_TITULO);
+		mv.addObject(titulo);
 		return mv;
 	}
 	

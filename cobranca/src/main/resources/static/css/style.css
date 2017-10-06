@@ -15,3 +15,9 @@
 .dc-titulo-card {
 	padding-top: 4px;   
 }
+
+.pencil {
+	content: url("./../images/glyphicons-31-pencil.png");
+	width: 14px;
+	height: 14px;
+}

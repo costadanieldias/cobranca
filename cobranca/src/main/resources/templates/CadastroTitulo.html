@@ -22,7 +22,8 @@
 					</div>			
 				</div>				
 			</div>
-			<div class="card-body">	
+			<div class="card-body">
+				<input type="hidden" th:field="*{codigo}"/>	
 				<div class="form-group row" th:classappend="${#fields.hasErrors('descricao')} ? has-danger">
 					<label for="descricao" class="col-sm-2 col-form-label">Descrição</label>
 					<div class="col-sm-4">
@@ -44,7 +45,7 @@
 				<div class="form-group row">
 					<label for="status" class="col-sm-2 col-form-label">Status</label>
 					<div class="col-sm-2">
-						<select class="form-control" id="status" name="status">
+						<select class="form-control" id="status" th:field="*{status}">
 							<option th:each="status : ${statusTituloList}" th:value="${status}" th:text="${status.descricao}"></option>
 						</select>
 					</div>
