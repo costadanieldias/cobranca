@@ -21,3 +21,10 @@
 	width: 14px;
 	height: 14px;
 }
+
+.bin {
+	content: url("./../images/glyphicons-17-bin.png");
+	width: 14px;
+	height: 14px;
+	margin-left: 6px;
+}

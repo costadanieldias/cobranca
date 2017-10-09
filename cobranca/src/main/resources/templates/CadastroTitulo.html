@@ -9,7 +9,8 @@
 <section layout:fragment="conteudo">
 	<form method="post" action="/titulos" th:object="${titulo}">	
 
-		<span layout:include="Mensagem"></span>
+		<span layout:include="MensagemSucesso"></span>
+		<span layout:include="MensagemErro"></span>
 				
 		<div class="card">
 			<div class="card-header">

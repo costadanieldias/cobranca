@@ -7,6 +7,9 @@
 	<title>Pesquisa de títulos</title>
 </head>
 <section layout:fragment="conteudo">
+
+	<span layout:include="MensagemSucesso"></span>
+
 	<div class="card">
 		<div class="card-header">
 			<div class="row">
@@ -41,9 +44,9 @@
 								th:classappend="${titulo.pendente ? 'badge-danger' : 'badge-success'}"></span>
 						</td>
 						<td class="text-center">
-							<a th:href="|/titulos/${titulo.codigo}|">
-								<span class="pencil">x</span>
-							</a>
+							<a class="pencil" th:href="|/titulos/${titulo.codigo}|"></a>							
+							<a class="bin" href="#" data-toggle="modal" data-target="#confirmacaoExclusaoModal"
+								th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"></a>												
 						</td>
 					</tr>
 					<tr>
@@ -53,5 +56,6 @@
 			</table>
 		</div>
 	</div>
+	<span layout:include="DialogoConfirmacaoExclusao"></span>
 </section>												
 </html>
