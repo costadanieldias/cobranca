@@ -44,9 +44,11 @@
 								th:classappend="${titulo.pendente ? 'badge-danger' : 'badge-success'}"></span>
 						</td>
 						<td class="text-center">
-							<a class="pencil" th:href="|/titulos/${titulo.codigo}|"></a>							
+							<a class="pencil" th:href="|/titulos/${titulo.codigo}|"
+								rel="tooltip" data-replacement="top" title="Editar"></a>							
 							<a class="bin" href="#" data-toggle="modal" data-target="#confirmacaoExclusaoModal"
-								th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"></a>												
+								th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"
+								rel="tooltip" data-replacement="top" title="Excluir"></a>												
 						</td>
 					</tr>
 					<tr>

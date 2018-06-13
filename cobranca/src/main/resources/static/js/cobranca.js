@@ -17,3 +17,7 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal', function (event) {
   
   modal.find('.modal-body').html('Tem certeza que deseja excluir o título <strong>' + descricao + '</strong>?');
 })
+
+$(function() {
+	$('[rel="tooltip"]').tooltip();
+});
