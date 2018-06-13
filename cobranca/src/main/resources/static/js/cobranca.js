@@ -20,4 +20,5 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal', function (event) {
 
 $(function() {
 	$('[rel="tooltip"]').tooltip();
+	$('.js-currency').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false, allowZero: false});
 });
