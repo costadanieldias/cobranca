@@ -20,5 +20,30 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal', function (event) {
 
 $(function() {
 	$('[rel="tooltip"]').tooltip();
-	$('.js-currency').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false, allowZero: false});
+	$('.js-currency').maskMoney({prefix:'R$ ', thousands:'.', decimal:',', affixesStay: false, allowZero: false});
+	$('.js-atualizar-status').on('click', function(event){
+		
+		event.preventDefault();
+		var botaoReceber = $(event.currentTarget);
+		var urlBotaoReceber = botaoReceber.attr('href');
+		
+		var response = $.ajax({
+			url: urlBotaoReceber,
+			type: 'PUT'
+		});
+		
+		response.done(function(e){
+			var codigoTitulo = botaoReceber.data('codigo');
+			$('[data-rule=' + codigoTitulo + ']').html('<span class="badge badge-success">' + e + '</span>');
+			botaoReceber.hide();
+		});
+		
+		response.fail(function(e){
+			console.log(e);
+			alert('Erro ao mudar status do registro.');
+		});
+		
+		//console.log('urlBotaoReceber', urlBotaoReceber);
+		
+	});
 });

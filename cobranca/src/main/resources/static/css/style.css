@@ -28,3 +28,10 @@
 	height: 14px;
 	margin-left: 6px;
 }
+
+.check {
+	content: url("./../images/glyphicons-153-check.png");
+	width: 14px;
+	height: 14px;
+	margin-left: 6px;
+}

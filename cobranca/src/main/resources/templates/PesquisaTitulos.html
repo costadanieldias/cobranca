@@ -39,7 +39,7 @@
 						<td th:text="${titulo.descricao}"></td>
 						<td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
 						<td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
-						<td class="text-center">
+						<td class="text-center" th:attr="data-rule=${titulo.codigo}">
 							<span class="badge" th:text="${titulo.status.descricao}"
 								th:classappend="${titulo.pendente ? 'badge-danger' : 'badge-success'}"></span>
 						</td>
@@ -48,7 +48,10 @@
 								rel="tooltip" data-replacement="top" title="Editar"></a>							
 							<a class="bin" href="#" data-toggle="modal" data-target="#confirmacaoExclusaoModal"
 								th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"
-								rel="tooltip" data-replacement="top" title="Excluir"></a>												
+								rel="tooltip" data-replacement="top" title="Excluir"></a>
+							<a class="check js-atualizar-status" rel="tooltip" data-replacement="top" title="Receber"
+								th:attr="data-codigo=${titulo.codigo}"
+								th:href="|/titulos/${titulo.codigo}/receber|" th:if="${titulo.pendente}"></a>												
 						</td>
 					</tr>
 					<tr>
