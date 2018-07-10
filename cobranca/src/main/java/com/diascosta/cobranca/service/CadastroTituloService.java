@@ -1,5 +1,7 @@
 package com.diascosta.cobranca.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.diascosta.cobranca.model.StatusTitulo;
 import com.diascosta.cobranca.model.Titulo;
 import com.diascosta.cobranca.repository.Titulos;
+import com.diascosta.cobranca.repository.filter.TituloFilter;
 
 @Service
 public class CadastroTituloService {
@@ -33,4 +36,7 @@ public class CadastroTituloService {
 		return StatusTitulo.RECEBIDO.getDescricao();
 	}
 	
+	public List<Titulo> filtrar(TituloFilter filtro) {
+		return titulos.findByDescricaoContaining(filtro.getDescricao() == null ? "%" : filtro.getDescricao());
+	}
 }

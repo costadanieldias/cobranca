@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.diascosta.cobranca.model.StatusTitulo;
 import com.diascosta.cobranca.model.Titulo;
-import com.diascosta.cobranca.repository.Titulos;
+import com.diascosta.cobranca.repository.filter.TituloFilter;
 import com.diascosta.cobranca.service.CadastroTituloService;
 
 @Controller
@@ -27,9 +27,6 @@ public class TituloController {
 	private static final String CADASTRO_TITULO = "CadastroTitulo";
 
 	private static final String REDIRECT_TITULOS_NOVO = "redirect:/titulos/novo";
-	
-	@Autowired
-	private Titulos titulos;
 	
 	@Autowired
 	private CadastroTituloService cadastroTituloService;
@@ -57,10 +54,9 @@ public class TituloController {
 	}
 	
 	@RequestMapping
-	public ModelAndView pesquisar() {
-		List<Titulo> listaTitulos = titulos.findAll();
+	public ModelAndView pesquisar(@ModelAttribute("filtro") TituloFilter filtro) {
 		ModelAndView mv = new ModelAndView("PesquisaTitulos");
-		mv.addObject("titulos", listaTitulos);
+		mv.addObject("titulos", cadastroTituloService.filtrar(filtro));
 		return mv;
 	}
 	

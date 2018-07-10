@@ -35,3 +35,7 @@
 	height: 14px;
 	margin-left: 6px;
 }
+
+.searchButton {
+	content: url("./../images/glyphicons-28-search.png");
+}
