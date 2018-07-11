@@ -17,7 +17,7 @@
 					<h4 class="dc-titulo-card">Pesquisa de títulos</h4>
 				</div>
 				<div class="col text-right">
-					<a class="btn btn-link" href="/titulos/novo"><strong>Novo título</strong></a>
+					<a class="btn btn-link" th:href="@{/titulos/novo}"><strong>Novo título</strong></a>
 				</div>			
 			</div>
 		</div>
@@ -61,14 +61,14 @@
 								th:classappend="${titulo.pendente ? 'badge-danger' : 'badge-success'}"></span>
 						</td>
 						<td class="text-center">
-							<a class="pencil" th:href="|/titulos/${titulo.codigo}|"
+							<a class="pencil" th:href="@{|/titulos/${titulo.codigo}|}"
 								rel="tooltip" data-replacement="top" title="Editar"></a>							
 							<a class="bin" href="#" data-toggle="modal" data-target="#confirmacaoExclusaoModal"
 								th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"
 								rel="tooltip" data-replacement="top" title="Excluir"></a>
 							<a class="check js-atualizar-status" rel="tooltip" data-replacement="top" title="Receber"
 								th:attr="data-codigo=${titulo.codigo}"
-								th:href="|/titulos/${titulo.codigo}/receber|" th:if="${titulo.pendente}"></a>												
+								th:href="@{|/titulos/${titulo.codigo}/receber|}" th:if="${titulo.pendente}"></a>												
 						</td>
 					</tr>
 					<tr>

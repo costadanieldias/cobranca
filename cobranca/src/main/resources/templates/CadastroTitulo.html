@@ -7,7 +7,7 @@
 	<title>Cadastro de título</title>
 </head>
 <section layout:fragment="conteudo">
-	<form method="POST" action="/titulos" th:object="${titulo}">	
+	<form method="POST" th:action="@{/titulos}" th:object="${titulo}">	
 
 		<span layout:include="MensagemSucesso"></span>
 		<span layout:include="MensagemErro"></span>
@@ -19,7 +19,7 @@
 						<h4 class="dc-titulo-card">Novo título</h4>
 					</div>
 					<div class="col text-right">
-						<a class="btn btn-link" href="/titulos/"><strong>Voltar para pesquisa</strong></a>
+						<a class="btn btn-link" th:href="@{/titulos/}"><strong>Voltar para pesquisa</strong></a>
 					</div>			
 				</div>				
 			</div>
