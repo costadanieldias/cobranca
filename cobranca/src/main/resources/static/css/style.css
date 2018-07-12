@@ -3,13 +3,13 @@
 }
 
 .card {	
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .alert {	
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .dc-titulo-card {
@@ -38,4 +38,17 @@
 
 .searchButton {
 	content: url("./../images/glyphicons-28-search.png");
+}
+
+/* CSS exclusivo para telas maiores que 768px */
+@media (min-width: 768px) {
+	.card {	
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	
+	.alert {	
+		margin-left: 10px;
+		margin-right: 10px;
+	}	
 }
