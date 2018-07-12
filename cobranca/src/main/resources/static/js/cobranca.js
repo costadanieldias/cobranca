@@ -9,7 +9,11 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal', function (event) {
   var form = modal.find('form');
   var action = form.data('url-base');
   
-  if(!action.endsWith('/')) {
+//  if(!action.endsWith('/')) { // Não funciona no IE
+//	  action += '/';
+//  }
+  
+  if(!'/' == action.charAt(action.length-1)) {
 	  action += '/';
   }
   

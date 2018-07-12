@@ -17,27 +17,37 @@
 }
 
 .pencil {
-	content: url("./../images/glyphicons-31-pencil.png");
 	width: 14px;
 	height: 14px;
+	display: inline-block;
+	background: url("./../images/glyphicons-31-pencil.png");
+	background-size: 14px;
 }
 
 .bin {
-	content: url("./../images/glyphicons-17-bin.png");
 	width: 14px;
-	height: 14px;
-	margin-left: 6px;
+	height: 17px;
+	display: inline-block;
+	background: url("./../images/glyphicons-17-bin.png");
+	background-size: 14px;
+	margin-left: 6px;	
 }
 
 .check {
-	content: url("./../images/glyphicons-153-check.png");
-	width: 14px;
-	height: 14px;
+	width: 16px;
+	height: 13px;
+	display: inline-block;
+	background: url("./../images/glyphicons-153-check.png");
+	background-size: 16px;
 	margin-left: 6px;
 }
 
 .searchButton {
-	content: url("./../images/glyphicons-28-search.png");
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	background: url("./../images/glyphicons-28-search.png");
+	background-size: 14px;
 }
 
 /* CSS exclusivo para telas maiores que 768px */
